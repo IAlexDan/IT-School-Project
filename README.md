@@ -1,2 +1,2 @@
 # IT-School-Project
-A basic project for the school that I studied
+A basic ASP .NET Core MVC project for the IT school that I studied

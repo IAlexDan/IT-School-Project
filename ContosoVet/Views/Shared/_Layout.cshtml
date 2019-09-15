@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ContosoVet</title>
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link href="~/css/material-kit.css" rel="stylesheet" />
+
+</head>
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg bg-dark">
+        <div class="container">
+            <a asp-controller="Home" asp-action="Index" class="navbar-brand">Home</a>
+            <button class="navbar-toggler" type="button"  data-toggle="collapse" style="background-color:white" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-bar navbar-kebab">Menu</span>
+                <span class="navbar-toggler-bar navbar-kebab"></span>
+                <span class="navbar-toggler-bar navbar-kebab"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav align-content-center">
+                    @if (Context.User.Identity.IsAuthenticated)
+                    {
+
+                        <li class="nav-item">
+                            <a asp-controller="Client" asp-action="ListClients" class="nav-link">Client</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Doctor" asp-action="ListDoctors" class="nav-link">Doctor</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Technician" asp-action="ListTechnicians" class="nav-link">Technician</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Patient" asp-action="ListPatients" class="nav-link">Patient</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Appointment" asp-action="ListAppointments" class="nav-link">Schedules</a>
+                        </li>
+                        <li>
+                            <span class="pr-5"></span>
+                            <span class="pr-5"></span>
+                            <span class="pr-5"></span>
+                            <span class="pr-5"></span>
+                            <span class="pr-5"></span>
+                            <span class="pr-5"></span>
+                            <span class="pr-5"></span>
+                            <span class="pr-5"></span>
+                            <span class="pr-5"></span>
+
+                            <span class="navbar-text">
+                                Logged in: @Context.User.Identity.Name
+                            </span>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-controller="Auth" , asp-action="Signout" class="nav-link">Sign out</a>
+                        </li>
+
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a asp-controller="Auth" asp-action="Login" class="nav-link">Log in</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Auth" asp-action="Signup" class="nav-link">Sign up</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+    @*<partial name="_CookieConsentPartial" />*@
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2019 - ContosoVet</p>
+        </footer>
+    </div>
+
+
+
+    @RenderSection("Scripts", required: false)
+    <script src="~/js/jquery.min.js" type="text/javascript"></script>
+    <script src="~/js/popper.min.js" type="text/javascript"></script>
+    <script src="~/js/bootstrap-datetimepicker.js" type="text/javascript"></script>
+    <script src="~/js/bootstrap-material-design.min.js" type="text/javascript"></script>
+    <script src="~/js/bootstrap-selectpicker.js" type="text/javascript"></script>
+    <script src="~/js/bootstrap-tagsinput.js" type="text/javascript"></script>
+    <script src="~/js/jasny-bootstrap.min.js" type="text/javascript"></script>
+    <script src="~/js/jquery.flexisel.js" type="text/javascript"></script>
+    <script src="~/js/material-kit.js" type="text/javascript"></script>
+    <script src="~/js/moment.min.js" type="text/javascript"></script>
+    <script src="~/js/nouislider.min.js" type="text/javascript"></script>
+</body>
+</html>
